@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+
+    <style type="text/css">
+        body {
+            font-family: Helvetica, arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: white;
+            padding: 30px; }
+
+        body > *:first-child {
+            margin-top: 0 !important; }
+        body > *:last-child {
+            margin-bottom: 0 !important; }
+
+        a {
+            color: #4183C4; }
+        a.absent {
+            color: #cc0000; }
+        a.anchor {
+            display: block;
+            padding-left: 30px;
+            margin-left: -30px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0; }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 20px 0 10px;
+            padding: 0;
+            font-weight: bold;
+            -webkit-font-smoothing: antialiased;
+            cursor: text;
+            position: relative; }
+
+        h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+            text-decoration: none; }
+
+        h1 tt, h1 code {
+            font-size: inherit; }
+
+        h2 tt, h2 code {
+            font-size: inherit; }
+
+        h3 tt, h3 code {
+            font-size: inherit; }
+
+        h4 tt, h4 code {
+            font-size: inherit; }
+
+        h5 tt, h5 code {
+            font-size: inherit; }
+
+        h6 tt, h6 code {
+            font-size: inherit; }
+
+        h1 {
+            font-size: 28px;
+            color: black; }
+
+        h2 {
+            font-size: 24px;
+            border-bottom: 1px solid #cccccc;
+            color: black; }
+
+        h3 {
+            font-size: 18px; }
+
+        h4 {
+            font-size: 16px; }
+
+        h5 {
+            font-size: 14px; }
+
+        h6 {
+            color: #777777;
+            font-size: 14px; }
+
+        p, blockquote, ul, ol, dl, li, table, pre {
+            margin: 15px 0; }
+
+        hr {
+            background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+            border: 0 none;
+            color: #cccccc;
+            height: 4px;
+            padding: 0;
+        }
+
+        body > h2:first-child {
+            margin-top: 0;
+            padding-top: 0; }
+        body > h1:first-child {
+            margin-top: 0;
+            padding-top: 0; }
+        body > h1:first-child + h2 {
+            margin-top: 0;
+            padding-top: 0; }
+        body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+            margin-top: 0;
+            padding-top: 0; }
+
+        a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+            margin-top: 0;
+            padding-top: 0; }
+
+        h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+            margin-top: 0; }
+
+        li p.first {
+            display: inline-block; }
+        li {
+            margin: 0; }
+        ul, ol {
+            padding-left: 30px; }
+
+        ul :first-child, ol :first-child {
+            margin-top: 0; }
+
+        dl {
+            padding: 0; }
+        dl dt {
+            font-size: 14px;
+            font-weight: bold;
+            font-style: italic;
+            padding: 0;
+            margin: 15px 0 5px; }
+        dl dt:first-child {
+            padding: 0; }
+        dl dt > :first-child {
+            margin-top: 0; }
+        dl dt > :last-child {
+            margin-bottom: 0; }
+        dl dd {
+            margin: 0 0 15px;
+            padding: 0 15px; }
+        dl dd > :first-child {
+            margin-top: 0; }
+        dl dd > :last-child {
+            margin-bottom: 0; }
+
+        blockquote {
+            border-left: 4px solid #dddddd;
+            padding: 0 15px;
+            color: #777777; }
+        blockquote > :first-child {
+            margin-top: 0; }
+        blockquote > :last-child {
+            margin-bottom: 0; }
+
+        table {
+            padding: 0;border-collapse: collapse; }
+        table tr {
+            border-top: 1px solid #cccccc;
+            background-color: white;
+            margin: 0;
+            padding: 0; }
+        table tr:nth-child(2n) {
+            background-color: #f8f8f8; }
+        table tr th {
+            font-weight: bold;
+            border: 1px solid #cccccc;
+            margin: 0;
+            padding: 6px 13px; }
+        table tr td {
+            border: 1px solid #cccccc;
+            margin: 0;
+            padding: 6px 13px; }
+        table tr th :first-child, table tr td :first-child {
+            margin-top: 0; }
+        table tr th :last-child, table tr td :last-child {
+            margin-bottom: 0; }
+
+        img {
+            max-width: 100%; }
+
+        span.frame {
+            display: block;
+            overflow: hidden; }
+        span.frame > span {
+            border: 1px solid #dddddd;
+            display: block;
+            float: left;
+            overflow: hidden;
+            margin: 13px 0 0;
+            padding: 7px;
+            width: auto; }
+        span.frame span img {
+            display: block;
+            float: left; }
+        span.frame span span {
+            clear: both;
+            color: #333333;
+            display: block;
+            padding: 5px 0 0; }
+        span.align-center {
+            display: block;
+            overflow: hidden;
+            clear: both; }
+        span.align-center > span {
+            display: block;
+            overflow: hidden;
+            margin: 13px auto 0;
+            text-align: center; }
+        span.align-center span img {
+            margin: 0 auto;
+            text-align: center; }
+        span.align-right {
+            display: block;
+            overflow: hidden;
+            clear: both; }
+        span.align-right > span {
+            display: block;
+            overflow: hidden;
+            margin: 13px 0 0;
+            text-align: right; }
+        span.align-right span img {
+            margin: 0;
+            text-align: right; }
+        span.float-left {
+            display: block;
+            margin-right: 13px;
+            overflow: hidden;
+            float: left; }
+        span.float-left span {
+            margin: 13px 0 0; }
+        span.float-right {
+            display: block;
+            margin-left: 13px;
+            overflow: hidden;
+            float: right; }
+        span.float-right > span {
+            display: block;
+            overflow: hidden;
+            margin: 13px auto 0;
+            text-align: right; }
+
+        code, tt {
+            margin: 0 2px;
+            padding: 0 5px;
+            white-space: nowrap;
+            border: 1px solid #eaeaea;
+            background-color: #f8f8f8;
+            border-radius: 3px; }
+
+        pre code {
+            margin: 0;
+            padding: 0;
+            white-space: pre;
+            border: none;
+            background: transparent; }
+
+        .highlight pre {
+            background-color: #f8f8f8;
+            border: 1px solid #cccccc;
+            font-size: 13px;
+            line-height: 19px;
+            overflow: auto;
+            padding: 6px 10px;
+            border-radius: 3px; }
+
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #cccccc;
+            font-size: 13px;
+            line-height: 19px;
+            overflow: auto;
+            padding: 6px 10px;
+            border-radius: 3px; }
+        pre code, pre tt {
+            background-color: transparent;
+            border: none; }
+
+        sup {
+            font-size: 0.83em;
+            vertical-align: super;
+            line-height: 0;
+        }
+
+        kbd {
+            display: inline-block;
+            padding: 3px 5px;
+            font-size: 11px;
+            line-height: 10px;
+            color: #555;
+            vertical-align: middle;
+            background-color: #fcfcfc;
+            border: solid 1px #ccc;
+            border-bottom-color: #bbb;
+            border-radius: 3px;
+            box-shadow: inset 0 -1px 0 #bbb
+        }
+
+        * {
+            -webkit-print-color-adjust: exact;
+        }
+        @media screen and (min-width: 914px) {
+            body {
+                width: 854px;
+                margin:0 auto;
+            }
+        }
+        @media print {
+            table, pre {
+                page-break-inside: avoid;
+            }
+            pre {
+                word-wrap: break-word;
+            }
+            body {
+                padding: 2cm;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Deleting or emptying a bucket<a name="delete-or-empty-bucket"></a></h1>
+
+<p>In some situations, you may need to delete or empty a bucket that contains objects. In this section, we&#39;ll explain how to delete objects in an unversioned bucket, and how to delete object versions and delete markers in a bucket that has versioning enabled. For more information about versioning, see <a href="Versioning.md">Using versioning</a>. In some situations, you may choose to empty a bucket instead of deleting it. This section explains various options you can use to delete or empty a bucket that contains objects.</p>
+
+<p><strong>Topics</strong>
+    + <a href="#delete-bucket">Delete a bucket</a>
+    + <a href="#empty-bucket">Empty a bucket</a></p>
+
+<h2 id="toc_1">Delete a bucket<a name="delete-bucket"></a></h2>
+
+<p>You can delete a bucket and its content programmatically using the AWS SDKs. You can also use lifecycle configuration on a bucket to empty its content and then delete the bucket. There are additional options, such as using Amazon S3 console and AWS CLI, but there are limitations on these methods based on the number of objects in your bucket and the bucket&#39;s versioning status.</p>
+
+<p><strong>Topics</strong>
+    + <a href="#delete-bucket-console">Delete a bucket: Using the Amazon S3 console</a>
+    + <a href="#delete-bucket-awscli">Delete a bucket: Using the AWS CLI</a>
+    + <a href="#delete-bucket-awssdks">Delete a bucket: Using the AWS SDKs</a></p>
+
+<h2 id="toc_2">Delete a bucket: Using the Amazon S3 console<a name="delete-bucket-console"></a></h2>
+
+<p>The Amazon S3 console supports deleting a bucket that may or may not be empty. For information about using the Amazon S3 console to delete a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/delete-bucket.html">How Do I Delete an S3 Bucket?</a> in the <em>Amazon Simple Storage Service Console User Guide</em>.</p>
+
+<h2 id="toc_3">Delete a bucket: Using the AWS CLI<a name="delete-bucket-awscli"></a></h2>
+
+<p>You can delete a bucket that contains objects using the AWS CLI only if the bucket does not have versioning enabled. If your bucket does not have versioning enabled, you can use the <code>rb</code> (remove bucket) AWS CLI command with <code>--force</code> parameter to remove a non-empty bucket. This command deletes all objects first and then deletes the bucket.</p>
+
+<div><pre><code class="language-none">$ aws s3 rb s3://bucket-name --force  </code></pre></div>
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html">Using High-Level S3 Commands with the AWS Command Line Interface</a> in the AWS Command Line Interface User Guide.</p>
+
+<h2 id="toc_4">Delete a bucket: Using the AWS SDKs<a name="delete-bucket-awssdks"></a></h2>
+
+<p>You can use the AWS SDKs to delete a bucket. The following sections provide examples of how to delete a bucket using the AWS SDK for Java and .NET. First, the code deletes objects in the bucket and then it deletes the bucket. For information about other AWS SDKs, see <a href="https://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
+
+<h2 id="toc_5">Delete a bucket using the AWS SDK for Java<a name="delete-bucket-sdk-java"></a></h2>
+
+<p>The following Java example deletes a bucket that contains objects. The example deletes all objects, and then it deletes the bucket. The example works for buckets with or without versioning enabled.</p>
+
+<p><strong>Note</strong><br>
+    For buckets without versioning enabled, you can delete all objects directly and then delete the bucket. For buckets with versioning enabled, you must delete all object versions before deleting the bucket.</p>
+
+<p>For instructions on creating and testing a working sample, see <a href="UsingTheMPJavaAPI.md#TestingJavaSamples">Testing the Amazon S3 Java Code Examples</a>. </p>
+
+<div><pre><code class="language-none">import com.amazonaws.AmazonServiceException;
+import com.amazonaws.SdkClientException;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.*;
+
+import java.util.Iterator;
+
+public class DeleteBucket2 {
+
+    public static void main(String[] args) {
+        Regions clientRegion = Regions.DEFAULT_REGION;
+        String bucketName = &quot;*** Bucket name ***&quot;;
+
+        try {
+            AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+                    .withCredentials(new ProfileCredentialsProvider())
+                    .withRegion(clientRegion)
+                    .build();
+
+            // Delete all objects from the bucket. This is sufficient
+            // for unversioned buckets. For versioned buckets, when you attempt to delete objects, Amazon S3 inserts
+            // delete markers for all objects, but doesn&#39;t delete the object versions.
+            // To delete objects from versioned buckets, delete all of the object versions before deleting
+            // the bucket (see below for an example).
+            ObjectListing objectListing = s3Client.listObjects(bucketName);
+            while (true) {
+                Iterator&lt;S3ObjectSummary&gt; objIter = objectListing.getObjectSummaries().iterator();
+                while (objIter.hasNext()) {
+                    s3Client.deleteObject(bucketName, objIter.next().getKey());
+                }
+
+                // If the bucket contains many objects, the listObjects() call
+                // might not return all of the objects in the first listing. Check to
+                // see whether the listing was truncated. If so, retrieve the next page of objects
+                // and delete them.
+                if (objectListing.isTruncated()) {
+                    objectListing = s3Client.listNextBatchOfObjects(objectListing);
+                } else {
+                    break;
+                }
+            }
+
+            // Delete all object versions (required for versioned buckets).
+            VersionListing versionList = s3Client.listVersions(new ListVersionsRequest().withBucketName(bucketName));
+            while (true) {
+                Iterator&lt;S3VersionSummary&gt; versionIter = versionList.getVersionSummaries().iterator();
+                while (versionIter.hasNext()) {
+                    S3VersionSummary vs = versionIter.next();
+                    s3Client.deleteVersion(bucketName, vs.getKey(), vs.getVersionId());
+                }
+
+                if (versionList.isTruncated()) {
+                    versionList = s3Client.listNextBatchOfVersions(versionList);
+                } else {
+                    break;
+                }
+            }
+
+            // After all objects and object versions are deleted, delete the bucket.
+            s3Client.deleteBucket(bucketName);
+        } catch (AmazonServiceException e) {
+            // The call was transmitted successfully, but Amazon S3 couldn&#39;t process
+            // it, so it returned an error response.
+            e.printStackTrace();
+        } catch (SdkClientException e) {
+            // Amazon S3 couldn&#39;t be contacted for a response, or the client couldn&#39;t
+            // parse the response from Amazon S3.
+            e.printStackTrace();
+        }
+    }
+}</code></pre></div>
+
+<h2 id="toc_6">Empty a bucket<a name="empty-bucket"></a></h2>
+
+<p>You can empty a bucket&#39;s content (that is, delete all content, but keep the bucket) programmatically using the AWS SDK. You can also specify lifecycle configuration on a bucket to expire objects so that Amazon S3 can delete them. There are additional options, such as using Amazon S3 console and AWS CLI, but there are limitations on this method based on the number of objects in your bucket and the bucket&#39;s versioning status.</p>
+
+<p><strong>Topics</strong>
+    + <a href="#empty-bucket-console">Empty a bucket: Using the Amazon S3 console</a>
+    + <a href="#empty-bucket-awscli">Empty a bucket: Using the AWS CLI</a>
+    + <a href="#empty-bucket-lifecycle">Empty a bucket: Using lifecycle configuration</a>
+    + <a href="#empty-bucket-awssdks">Empty a bucket: Using the AWS SDKs</a></p>
+
+<h2 id="toc_7">Empty a bucket: Using the Amazon S3 console<a name="empty-bucket-console"></a></h2>
+
+<p>For information about using the Amazon S3 console to empty a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/empty-bucket.html">How Do I Empty an S3 Bucket?</a> in the <em>Amazon Simple Storage Service Console User Guide</em></p>
+
+<h3 id="toc_8">Empty a bucket: Using the AWS CLI<a name="empty-bucket-awscli"></a></h3>
+
+<p>You can empty a bucket using the AWS CLI only if the bucket does not have versioning enabled. If your bucket does not have versioning enabled, you can use the <code>rm</code> (remove) AWS CLI command with the <code>--recursive</code> parameter to empty a bucket (or remove a subset of objects with a specific key name prefix). </p>
+
+<p>The following <code>rm</code> command removes objects with key name prefix <code>doc</code>, for example, <code>doc/doc1</code> and <code>doc/doc2</code>.</p>
+
+<div><pre><code class="language-none">$ aws s3 rm s3://bucket-name/doc --recursive</code></pre></div>
+
+<p>Use the following command to remove all objects without specifying a prefix.</p>
+
+<div><pre><code class="language-none">$ aws s3 rm s3://bucket-name --recursive</code></pre></div>
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html">Using High-Level S3 Commands with the AWS Command Line Interface</a> in the AWS Command Line Interface User Guide.</p>
+
+<p><strong>Note</strong><br>
+    You cannot remove objects from a bucket with versioning enabled. Amazon S3 adds a delete marker when you delete an object, which is what this command will do. For more information about versioning, see <a href="Versioning.md">Using versioning</a>.</p>
+
+<h2 id="toc_9">Empty a bucket: Using lifecycle configuration<a name="empty-bucket-lifecycle"></a></h2>
+
+<p>You can configure lifecycle on your bucket to expire objects and request that Amazon S3 delete expired objects. You can add lifecycle configuration rules to expire all or a subset of objects with a specific key name prefix. For example, to remove all objects in a bucket, you can set lifecycle rule to expire objects one day after creation.</p>
+
+<p>If your bucket has versioning enabled, you can also configure the rule to expire noncurrent objects. To fully empty the contents of a versioning enabled bucket, you will need to configure an expiration policy on both current and noncurrent objects in the bucket.</p>
+
+<p>For more information, see <a href="object-lifecycle-mgmt.md">Object lifecycle management</a> and <a href="lifecycle-expire-general-considerations.md">Understanding object expiration</a>.</p>
+
+<h2 id="toc_10">Empty a bucket: Using the AWS SDKs<a name="empty-bucket-awssdks"></a></h2>
+
+<p>You can use the AWS SDKs to empty a bucket or remove a subset of objects with a specific key name prefix.</p>
+
+<p>For an example of how to empty a bucket using AWS SDK for Java, see <a href="#delete-bucket-sdk-java">Delete a bucket using the AWS SDK for Java</a>. The code deletes all objects, regardless of whether the bucket has versioning enabled or not, and then it deletes the bucket. To just empty the bucket, make sure you remove the statement that deletes the bucket. </p>
+
+<p>For more information about using other AWS SDKs, see <a href="https://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
+
+
+
+
+</body>
+
+</html>
